@@ -64,6 +64,7 @@ king_of_the_hill:
 	$(WASM32_NIMC) --out:examples/king_of_the_hill.wasm examples/king_of_the_hill.nim
 	$(POSTPROCESS) examples/king_of_the_hill.wasm
 
+
 .PHONY: examples
 examples: king_of_the_hill
 	$(WASM32_NIMC) --out:examples/registry.wasm examples/registry.nim
@@ -74,3 +75,8 @@ examples: king_of_the_hill
 	$(POSTPROCESS) examples/erc20.wasm
 	$(WASM32_NIMC) --out:examples/default_func.wasm examples/default_func.nim
 	$(POSTPROCESS) examples/default_func.wasm
+
+
+.PHONY: near-examples
+near-examples:
+	$(WASM32_NIMC) --out:examples/near/hello_v0.wasm examples/near/hello_v0.nim
