@@ -16,3 +16,11 @@ proc helloo() {.exportwasm.} =
 
 proc hello() {.exportwasm.} =
     discard
+
+proc hello_world(): cstring {.exportwasm.} =
+    return cstring("Hello world!")
+
+    # var
+    #     s: string = "Hello World!"
+    #     ss = cstring(s)
+    # return cast[int32](unsafeAddr ss)

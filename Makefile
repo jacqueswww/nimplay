@@ -80,3 +80,4 @@ examples: king_of_the_hill
 .PHONY: near-examples
 near-examples:
 	$(WASM32_NIMC) --out:examples/near/hello_v0.wasm examples/near/hello_v0.nim
+	docker run -e HOME='/tmp/' --user 1000:1000 -w /code/ -v /home/jacques/projects/nimplay:/code/ --entrypoint="/usr/bin/nim" jacqueswww/nimclang --verbosity:2 --passC:"--target=wasm32-unknown-unknown-wasm" --passL:"--target=wasm32-unknown-unknown-wasm" --passC:"-I./include" --clang.options.linker:"-nostdlib -Wl,--no-entry,--allow-undefined,--strip-all,--export-dynamic" --cpu:i386 --cc:clang --gc:none --nomain -d:release -p:/code/vendor/nimcrypto -p:/code/vendor/stint -p:/code/vendor/nim-stew/ c --out:examples/near/hello_v0.wasm examples/near/hello_v0.nim

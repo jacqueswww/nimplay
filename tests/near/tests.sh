@@ -5,7 +5,7 @@ TESTS=(hello helloo)
 [[ -e /tmp/main.wasm ]] && rm /tmp/main.wasm
 cp $(dirname "$0")/../../examples/near/hello_v0.wasm /tmp/main.wasm
 cp $(dirname "$0")/*.json /tmp/
-errormsg="WasmerCallError"
+errormsg="Error"
 errors=0
 passed=0
 
